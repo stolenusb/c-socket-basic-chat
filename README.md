@@ -1,21 +1,32 @@
-This project implements a simple chat server and client using sockets in C (linux). The server supports multiple clients, and clients can send messages to each other through the server. The server also provides administrative commands to manage clients and shut down the server.
+<h1>Chat Server and Client</h1>
 
+<p>
+    This project implements a simple chat server and client using sockets in C (Linux). The server supports multiple clients, and clients can send messages to each other through the server. The server also provides administrative commands to manage clients and shut down the server.
+</p>
 
-Features
-Server Features:
--Supports up to MAX_CHATTERS (10) clients simultaneously.
--Messages sent by one client are broadcast to all other connected clients.
+<h2>Features</h2>
 
-Admin Commands:
-    -/shutdown: Shuts down the server and disconnects all clients.
-    -/kick <socket_id>: Kicks a specific client by their socket ID.
-    -The server closes all client sockets and exits cleanly when shut down.
-    -Uses select with a timeout to periodically check for server shutdown and new client connections.
+<h3>Server Features:</h3>
+<ul>
+    <li>Supports up to <code>MAX_CHATTERS</code> (10) clients simultaneously.</li>
+    <li>Messages sent by one client are broadcast to all other connected clients.</li>
+</ul>
 
-Client Features:
-    -Connects to the server using the provided host IP and port.
-        ./client <HOSTIP> <PORT> <USERNAME>
-    -Sends messages to the server, which are broadcast to all other clients.
-    -Receives messages from the server and displays them in the terminal.
-    -/exit: Disconnects from the server and exits the client program.
-    -Uses a separate thread to handle sending messages, allowing the client to receive messages simultaneously.
+<h3>Admin Commands:</h3>
+<ul>
+    <li><code>/shutdown</code>: Shuts down the server and disconnects all clients.</li>
+    <li><code>/kick &lt;socket_id&gt;</code>: Kicks a specific client by their socket ID.</li>
+    <li>The server closes all client sockets and exits cleanly when shut down.</li>
+    <li>Uses <code>select</code> with a timeout to periodically check for server shutdown and new client connections.</li>
+</ul>
+
+<h3>Client Features:</h3>
+<ul>
+    <li>Connects to the server using the provided host IP and port.<br>
+        Example: <code>./client &lt;HOSTIP&gt; &lt;PORT&gt; &lt;USERNAME&gt;</code>
+    </li>
+    <li>Sends messages to the server, which are broadcast to all other clients.</li>
+    <li>Receives messages from the server and displays them in the terminal.</li>
+    <li><code>/exit</code>: Disconnects from the server and exits the client program.</li>
+    <li>Uses a separate thread to handle sending messages, allowing the client to receive messages simultaneously.</li>
+</ul>
